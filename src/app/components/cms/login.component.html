@@ -1,0 +1,27 @@
+<html>
+<body>
+    
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-12 col-md-12 mr-0" routerLink="/admin/dashboard">Country Gourmet Content Management System</a>
+    </nav>
+
+    
+    <form class="form-signin" [formGroup] = "angForm" (ngSubmit)="login()">
+      <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" id="inputUsername" class="form-control" formControlName="username" #username [(ngModel)] = "loginData.username" /> 
+
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" formControlName="password" [(ngModel)]="loginData.password" />
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+  
+  </body>
+  </html>

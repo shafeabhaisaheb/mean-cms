@@ -1,0 +1,74 @@
+  <body>
+
+    <!-- NAVBAR --> 
+    <app-navbar></app-navbar>
+
+    <div class="container-fluid">
+      <div class="row">
+
+    <!-- SIDEBAR -->
+
+        <app-sidebar></app-sidebar>
+
+    <!-- END SIDEBAR 
+
+      MAIN CONTENT -->
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            
+          </div>
+
+          <h3>Dinner Specials</h3>
+            
+            <!-- SPECIALS FORM --> 
+            <form [formGroup]='imageForm' #statusNgForm='ngForm' (submit)='handleSubmit($event, statusNgForm, imageForm)'>
+
+              <div class="form-group row">
+              <label for="image1" class="col-sm-2 col-form-label">Image</label>
+              <div class="col-sm-10 col-md-8">
+                <div *ngIf="dinner_image !== undefined">
+                    <img src="{{ dinner_image.value }}">
+                </div>
+
+                <div class="custom-file">
+                  <input #myInput type="file" class="custom-file-input" id="file" (change)="handleFileInput($event.target.files)">
+                       <label class="custom-file-label" for="customFile">Choose file</label>
+                  <button type='submit' class='btn btn-default' [disabled]='imageForm.invalid'>Upload</button>
+
+                </div>
+              
+              </div>
+            </div>
+            </form>
+
+
+            <form [formGroup]="subheadForm" novalidate>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Heading</label>
+                <div class="col-sm-10 col-md-8" *ngIf="dinner_subheading !== undefined">
+                  <input type="text" class="form-control" formControlName="dinner_subheading" [(ngModel)]="dinner_subheading.value"/>
+                </div>
+            </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10 col-md-8">
+                  <button (click)="updateElement('dinner_subheading', dinner_subheading.value, dinner_subheading._id)" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+
+<!-- END SPECIALS FORM --> 
+
+          <br><br>
+          <app-list [message]="listMessage"></app-list>
+           
+        
+
+        </main>
+      </div>
+    </div>
+
+  </body>
+

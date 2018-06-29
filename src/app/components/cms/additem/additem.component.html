@@ -1,0 +1,105 @@
+
+
+    <!-- NAVBAR --> 
+    <app-navbar></app-navbar>
+
+    <div class="container-fluid">
+      <div class="row">
+
+    <!-- SIDEBAR -->
+
+        <app-sidebar></app-sidebar>
+
+    <!-- END SIDEBAR 
+
+      MAIN CONTENT -->
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            
+            <h1> {{ title }} </h1>
+
+          </div>
+
+          <h3>Add Item</h3>
+          <form [formGroup]="newForm" novalidate>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10 col-md-8">
+                  <input type="text" class="form-control" placeholder="Title" formControlName="name" #name>
+                </div>
+            </div>
+
+            <div class="form-group row">
+              <!-- ROW 2 -->
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">Price</label>
+                  <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" placeholder="Price" formControlName="price" #price>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">Menu</label>
+                    <div class="col-sm-10 col-md-8">
+
+                      <select class="form-control" #menu formControlName="menu">
+                        <option *ngFor="let menu of menus" [value]="menu.name"> {{menu.name}}</option>
+                        
+                      </select>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+              <label>Description</label>
+              <textarea class="form-control" #description rows="3" formControlName="description"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <!-- ROW 4 -->
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">Status</label>
+                    <div class="col-sm-10 col-md-8">
+
+                      <select class="form-control" formControlName="status" #status>
+                        <option *ngFor="let status of statuses" [value]="status.status">{{ status.status }}</option>
+                      </select>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">Order</label>
+                  <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" placeholder="Order" formControlName="order" #order>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="form-group row">
+              <div class="col-sm-10 col-md-8">
+                <button class="btn btn-primary" (click)="addItem(name.value, price.value, menu.value, description.value, status.value, order.value)" [disabled]="newForm.pristine || newForm.invalid">Submit</button>
+              </div>
+            </div>
+          </form>
+
+        </main>
+      </div>
+    </div>
+
+
+

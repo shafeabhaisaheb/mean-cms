@@ -1,0 +1,62 @@
+
+
+  	<!-- NAVBAR --> 
+    <app-navbar></app-navbar>
+
+    <div class="container-fluid">
+      <div class="row">
+
+    <!-- SIDEBAR -->
+
+      	<app-sidebar></app-sidebar>
+
+    <!-- END SIDEBAR 
+
+    	MAIN CONTENT -->
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            
+            <h1> {{ title }} </h1>
+
+          </div>
+
+          <h3>CAROUSEL</h3>
+          <form [formGroup]="carouselForm">
+            <div class="form-group row">
+              <label for="image1" class="col-sm-2 col-form-label">Image 1</label>
+              <div class="col-sm-10 col-md-8">
+                <img src="/../../../../assets/img/breakfast_01.jpg" class="img-fluid">
+                
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFile">
+                 <label class="custom-file-label" for="customFile">Choose file</label>
+              </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputHeading" class="col-sm-2 col-form-label">Heading</label>
+                <div class="col-sm-10 col-md-8">
+                  <input type="text" class="form-control" id="inputHeading" placeholder="Heading Goes Here">
+                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputSubHeading" class="col-sm-2 col-form-label">SubHeading</label>
+                <div class="col-sm-10 col-md-8">
+                  <input type="text" class="form-control" id="inputSubHeading" placeholder="Subheading Goes Here">
+                </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-10 col-md-8">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+
+        </main>
+      </div>
+    </div>
+
+
+

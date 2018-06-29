@@ -1,0 +1,39 @@
+
+<form [formGroup]='imageForm' #statusNgForm='ngForm' (submit)='handleSubmit($event, statusNgForm, imageForm)'>
+
+  <div class="form-group row">
+	<label for="image1" class="col-sm-2 col-form-label">Image</label>
+	<div class="col-sm-10 col-md-8">
+	  <div *ngIf="breakfast_image !== undefined">
+        <img src="{{ breakfast_image.value }}" width='100'>
+    </div>
+
+	  <div class="custom-file">
+	    <input #myInput type="file" class="custom-file-input" id="file" (change)="handleFileInput($event.target.files)">
+	    	   <label class="custom-file-label" for="customFile">Choose file</label>
+	    <button type='submit' class='btn btn-default' [disabled]='imageForm.invalid'>Upload</button>
+
+	  </div>
+	
+	</div>
+</div>
+</form>
+
+
+<form [formGroup]="subheadForm" novalidate>
+
+<div class="form-group row">
+	<label class="col-sm-2 col-form-label">Heading</label>
+	  <div class="col-sm-10 col-md-8" *ngIf="breakfast_subheading !== undefined">
+	    <input type="text" class="form-control" formControlName="breakfast_subheading" [(ngModel)]="breakfast_subheading.value"/>
+	  </div>
+</div>
+
+  <div class="form-group row">
+    <div class="col-sm-10 col-md-8">
+      <button (click)="updateElement('breakfast_subheading', breakfast_subheading.value, breakfast_subheading._id)" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+
